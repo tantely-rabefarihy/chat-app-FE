@@ -1,7 +1,10 @@
+import HomePage from "./components/homepage";
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello World!</h1>
+      <h1>Messaging app</h1>
+      <HomePage />
     </div>
   );
 }

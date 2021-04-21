@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
+const mysqlConnection = require("./mysql");
 
 const app = express();
 
@@ -18,9 +19,9 @@ app.use(morgan("tiny"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 
-// endpoints
+// MYSQL
 
-// app.use(require("./routes/my-routes"));
+app.use(require("./routes/handlers"));
 
 app.get("/", (req, res) => {
   res.send("Hello");
