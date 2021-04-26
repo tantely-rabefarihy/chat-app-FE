@@ -64,18 +64,20 @@ const HomePage = () => {
   return (
     <MainContainer>
       <PostContainer>
+        <h1>Comments</h1>
         {!dataFromDb ? (
           <></>
         ) : (
           dataFromDb?.map((userInfo, index) => {
+            const dateFormat = new Date(userInfo?.date).toLocaleDateString();
+
             return (
               <Card key={index}>
                 <User>
                   <a href={`mailto:${userInfo?.email}`}>{userInfo?.name}</a>
                 </User>
                 <Text>"{userInfo?.post}"</Text>
-                <Text>"{userInfo?.email}"</Text>
-                <Text>"{userInfo?.date}"</Text>
+                <Text>{dateFormat}</Text>
               </Card>
             );
           })
@@ -113,10 +115,10 @@ const Card = styled.div`
   border: 2px transparent solid;
   border-radius: 8px;
   position: relative;
-  margin: 3rem auto;
+  margin: 3.5rem auto;
   max-width: 30rem;
-  min-width: 15rem;
-  height: 10rem;
+  min-width: 20rem;
+  height: 15rem;
   background-color: black;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,

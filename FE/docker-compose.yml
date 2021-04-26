@@ -1,0 +1,24 @@
+version: 3.9
+services:
+    chat-app:
+        image: chat-app
+        stdin_open: true
+        ports:
+            - "3000:3000"
+    api-server:
+        image: api-server
+        ports:
+            - "8080:8080"
+        depends_on:
+            -mysql
+    mysql:
+        image: mysql
+        container_name: mySqldb
+        environment:
+            <<: *common-variables
+            MYSQL_HOST: localhost
+            MYSQL_ROOT_PASSWORD: mychatapp
+        ports:
+            - 3306:3306
+        restart: always
+        
