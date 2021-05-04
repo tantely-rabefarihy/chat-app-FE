@@ -15,7 +15,7 @@ const Form = ({ formData, handleChange, addUser, disabled, subStatus }) => {
           <Input
             name="name"
             type="text"
-            placeholder="John Applepie"
+            placeholder="Peter Applepie"
             handleChange={handleChange}
           />
           <Input
